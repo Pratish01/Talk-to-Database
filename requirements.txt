@@ -1,0 +1,15 @@
+langchain
+langchain-openai
+langchain-google-genai
+langchain-groq
+langchain-community
+langgraph
+sqlalchemy
+faiss-cpu
+python-dotenv
+pandas
+pydantic
+openai
+tiktoken
+pymysql
+cryptography

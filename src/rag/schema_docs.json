@@ -1,0 +1,60 @@
+[
+  {
+    "id": "table_employees",
+    "type": "table_schema",
+    "name": "employees",
+    "description": "Information about employees including their names and roles.",
+    "columns": [
+      {"name": "id", "description": "Unique identifier for the employee."},
+      {"name": "name", "description": "Full name of the employee."},
+      {"name": "dept_id", "description": "ID of the department the employee belongs to. Links to departments.id."},
+      {"name": "role", "description": "Job title or role of the employee."}
+    ]
+  },
+  {
+    "id": "table_departments",
+    "type": "table_schema",
+    "name": "departments",
+    "description": "Organizational departments within the company.",
+    "columns": [
+      {"name": "id", "description": "Unique identifier for the department."},
+      {"name": "name", "description": "Name of the department (e.g., Engineering, Sales)."},
+      {"name": "manager_id", "description": "Employee ID of the department manager. Links to employees.id."}
+    ]
+  },
+  {
+    "id": "table_salaries",
+    "type": "table_schema",
+    "name": "salaries",
+    "description": "Salary details for employees.",
+    "columns": [
+      {"name": "employee_id", "description": "ID of the employee. Links to employees.id."},
+      {"name": "amount", "description": "Yearly salary amount."},
+      {"name": "currency", "description": "Currency of the salary (e.g., USD)."}
+    ]
+  },
+  {
+    "id": "table_projects",
+    "type": "table_schema",
+    "name": "projects",
+    "description": "Projects being worked on by departments.",
+    "columns": [
+      {"name": "id", "description": "Unique identifier for the project."},
+      {"name": "name", "description": "Name of the project."},
+      {"name": "dept_id", "description": "ID of the department managing the project. Links to departments.id."},
+      {"name": "budget", "description": "Total budget allocated to the project."}
+    ]
+  },
+  {
+    "id": "rule_salary_currency",
+    "type": "business_rule",
+    "name": "Salary Currency",
+    "description": "All salaries are currently stored in USD. If asked for other currencies, note that the data is in USD."
+  },
+  {
+    "id": "rule_manager_lookup",
+    "type": "business_rule",
+    "name": "Manager Identification",
+    "description": "To find a department's manager, join departments.manager_id with employees.id."
+  }
+]
